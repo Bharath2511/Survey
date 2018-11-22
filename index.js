@@ -29,7 +29,7 @@ require("./routes/authRoutes")(app);
 const PORT = process.env.PORT || 5000;
 
 app.get("/", (req, res) => {
-  res.send("deploy");
+  res.send("deployment");
 });
 
 app.listen(PORT, () => {
