@@ -8,5 +8,5 @@ export const fetchUser = () =>
   async dispatch => {
     //only after hitting that route we want to dispatch an action
     const res = await axios.get("/api/current_user");
-    dispatch({ type: FETCH_USER, payload: res });
+    dispatch({ type: FETCH_USER, payload: res.data });
   };
