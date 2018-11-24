@@ -13,5 +13,8 @@ export const fetchUser = () =>
 
 export const handleToken = token => async dispatch => {
   const res = await axios.post("/api/stripe", token);
+  //the user model gets updated whenever this action is dispatched
+  //here res.data is the user object itself
+  //so the reducer renders all the components
   dispatch({ type: FETCH_USER, payload: res.data });
 };
