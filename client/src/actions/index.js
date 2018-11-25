@@ -17,4 +17,5 @@ export const handleToken = token => async dispatch => {
   //here res.data is the user object itself
   //so the reducer renders all the components
   dispatch({ type: FETCH_USER, payload: res.data });
+  //console.log(res.data);
 };
