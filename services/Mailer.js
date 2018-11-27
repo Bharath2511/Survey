@@ -35,6 +35,15 @@ class Mailer extends helper.Mail {
     trackingSettings.setClickTracking(clickTracking);
     this.addTrackingSettings(trackingSettings);
   }
+
+  addRecipients() {
+    const personalize = new helper.Personalization();
+    //recipients is 19 recipient is helper.email thing
+    this.recipients.forEach(recipient => {
+      personalize.addTo(recipient);
+    });
+    this.addPersonalization(personalize);
+  }
 }
 
 module.exports = Mailer;
