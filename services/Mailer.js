@@ -11,6 +11,9 @@ class Mailer extends helper.Mail {
     //any constructor on mail class is executed by calling super
     super();
 
+    //it return an api object
+    this.sgApi = sendgrid(keys.sendGridKey);
+
     this.from_email = new helper.Email("donotreply@emaily.com");
     this.subject = subject;
     this.body = new helper.Content("text/html", content);
@@ -43,6 +46,18 @@ class Mailer extends helper.Mail {
       personalize.addTo(recipient);
     });
     this.addPersonalization(personalize);
+  }
+
+  async send() {
+    const request = this.sgApi.emptyRequest({
+      method: "POST",
+      path: "/v3/mail/send",
+      body: this.toJSON()
+    });
+
+    //on api object we call API method
+    const response = this.sgApi.API(request);
+    return response;
   }
 }
 
