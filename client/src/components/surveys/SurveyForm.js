@@ -42,8 +42,8 @@ class SurveyForm extends Component {
 //values is the data coming from form
 function validate(values) {
   const errors = {};
-  //we are providing an empty string  to that errro to go away
-  errors.emails = validateEmails(values.emails || "");
+  //we are providing an empty string  to that error to go away
+  errors.recipients = validateEmails(values.recipients || "");
 
   _.each(formFields, ({ name }) => {
     if (!values[name]) {
